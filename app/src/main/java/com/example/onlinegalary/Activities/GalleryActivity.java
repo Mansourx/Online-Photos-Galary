@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -29,7 +30,7 @@ public class GalleryActivity extends AppCompatActivity {
 
         Random random = new Random();
 
-        final String[] images = new String[10];
+        final String[] images = new String[20];
 
         for (int i = 0 ; i < images.length; i++) {
             images[i] = "https://picsum.photos/600?image="+ random.nextInt(1000+1);
@@ -39,10 +40,14 @@ public class GalleryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view, int position) {
                 // open the full screen activity with image
+                Intent i = new Intent(getApplicationContext(), FullScreenActivity.class);
+                i.putExtra("IMAGES", images);
+                i.putExtra("POSITION", position);
+                startActivity(i);
             }
         };
 
-        GalleryImageAdapter galaryImageAdaper = new GalleryImageAdapter(this, images, listener);
-        recyclerView.setAdapter(galaryImageAdaper);
+        GalleryImageAdapter galleryImageAdapter = new GalleryImageAdapter(this, images, listener);
+        recyclerView.setAdapter(galleryImageAdapter);
     }
 }
