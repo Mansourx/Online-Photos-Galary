@@ -1,5 +1,5 @@
 # Online-Photos-Galary
-An online Glaray that fitche Images from image API and Displays them on a grid Recycler view
+An online Glaray that fitche Images from image API and Displays them on a grid Recycler view.
 
 
 <img src="images/GalartScreenShoot1.png" width=350>
